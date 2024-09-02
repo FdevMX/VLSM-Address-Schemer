@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es" ng-app="vlsm">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora VLSM</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.28/jspdf.plugin.autotable.min.js"></script>
+    <script src="https://kit.fontawesome.com/b3bf7eb232.js" crossorigin="anonymous"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body ng-controller="MainController" ng-class="{'dark-mode': darkMode}">
+    <header>
+        <div class="container">
+            <a href="https://github.com/FdevMX/VLSM-Address-Schemer" target="_blank" class="github-link">
+                <i class="fa-brands fa-github"></i>
+            </a>
+            <h1>VLSM-Address-Schemer</h1>
+            <div class="theme-dropdown">
+                <button class="theme-toggle" ng-click="toggleDropdown()">
+                    <i class="fa-solid" ng-class="{
+                        'fa-sun': themeMode === 'light',
+                        'fa-moon': themeMode === 'dark',
+                        'fa-desktop': themeMode === 'system'
+                    }"></i>
+                </button>
+                <ul class="theme-options" ng-show="dropdownOpen">
+                    <li ng-click="changeTheme('light')">
+                        <i class="fa-solid fa-sun"></i> Light
+                        <i class="fa-solid fa-check" ng-show="themeMode === 'light'"></i>
+                    </li>
+                    <li ng-click="changeTheme('dark')">
+                        <i class="fa-solid fa-moon"></i> Dark
+                        <i class="fa-solid fa-check" ng-show="themeMode === 'dark'"></i>
+                    </li>
+                    <li ng-click="changeTheme('system')">
+                        <i class="fa-solid fa-desktop"></i> Auto
+                        <i class="fa-solid fa-check" ng-show="themeMode === 'system'"></i>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="form-group">
+            <label for="hosts">Cantidad de Hosts (separados por comas):</label>
+            <input type="text" id="hosts" placeholder="50,20" ng-model="hosts">
+        </div>
+
+        <div class="form-group">
+            <label for="hostNames">Nombre de hosts (separados por comas):</label>
+            <input type="text" id="hostNames" placeholder="credito,cobranza" ng-model="hostNames">
+        </div>
+
+        <div class="form-group">
+            <label for="ip">Dirección IP:</label>
+            <input type="text" id="ip" placeholder="209.17.81.0" ng-model="ip">
+        </div>
+
+        <div class="button-group">
+            <button class="btn-calculate" ng-click="calcular(hosts, ip)">Calcular</button>
+            <button class="btn-clear" ng-click="limpiar()">Limpiar</button>
+            <button class="btn-export" ng-show="ips && ips.length > 0" ng-click="exportarPDF()">Exportar PDF</button>
+            <button class="btn-export" ng-show="ips && ips.length > 0" ng-click="exportarCSV()">Exportar CSV</button>
+        </div>
+
+        <div ng-show="ips" class="results">
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Cantidad de hosts</th>
+                            <th>IP (ID Red)</th>
+                            <th>Máscara</th>
+                            <th>Máscara de subred</th>
+                            <th>Rango</th>
+                            <th>1ra IP (Default Gateway)</th>
+                            <th>2da IP (DHCP)</th>
+                            <th>3ra IP (Start IP Address)</th>
+                            <th>Última IP</th>
+                            <th>Broadcast</th>
+                            <th>DNS</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="ip in ips">
+                            <td>{{ip.posicion}}</td>
+                            <td>{{ip.cantidadHosts}}</td>
+                            <td>{{ip.ip}}</td>
+                            <td>{{ip.mascaraDiagonal}}</td>
+                            <td>{{ip.mascara}}</td>
+                            <td>{{ip.rango}}</td>
+                            <td>{{ip.primeraIP}}</td>
+                            <td>{{ip.segundaIP}}</td>
+                            <td>{{ip.terceraIP}}</td>
+                            <td>{{ip.ultimaIP}}</td>
+                            <td>{{ip.broadcast}}</td>
+                            <td>{{ip.dns}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; VLSM-Address-Schemer.</p>
+        </div>
+    </footer>
+    <script src="../assets/js/script.js"></script>
+</body>
+</html>

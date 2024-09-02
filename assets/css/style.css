@@ -1,0 +1,553 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.container {
+    width: 100%;
+    max-width: 1450px;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.dark-mode {
+    background-color: #1a2634;
+    color: #ecf0f1;
+}
+
+header {
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    padding: 10px 0;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Permitir que los elementos se envuelvan */
+}
+
+h1 {
+    margin: 0;
+    flex-grow: 1;
+    text-align: center;
+}
+
+.github-link img {
+    width: 24px;
+    height: 24px;
+}
+
+.theme-dropdown {
+    position: relative;
+}
+
+.theme-toggle {
+    background-color: #4d5e71;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    font-size: 24px;
+    align-items: center;
+}
+
+.theme-toggle:hover {
+    background-color: #344ddb;
+    transform: scale(1.05);
+}
+
+.theme-options {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+    color: #5f637b;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    top: 50px;
+    right: 0;
+    display: none;
+}
+
+.theme-options li {
+    padding: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.theme-options li:hover {
+    background-color: #e8eaef;
+    border-radius: 12px;
+    transform: scale(1.05);
+}
+
+.theme-options li i {
+    margin-right: 10px;
+}
+
+.theme-options li .fa-check {
+    margin-left: auto;
+    color: green;
+}
+
+.theme-dropdown .theme-options[ng-show="dropdownOpen"] {
+    display: block;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group input[type="text"] {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+    color: #333;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.dark-mode input[type="text"] {
+    background-color: #34495e;
+    color: #ecf0f1;
+    border-color: #7f8c8d;
+}
+
+.button-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; /* Espacio entre los botones */
+    margin-bottom: 20px; /* Espacio debajo del grupo de botones */
+}
+
+.button-group button {
+    flex: 1; /* Asegura que todos los botones tengan el mismo ancho */
+}
+
+button {
+    margin-right: 10px;
+    padding: 14px 20px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn-calculate {
+    background-color: #344ddb;
+    color: white;
+}
+
+.btn-calculate:hover {
+    background-color: #6979d4;
+    transform: scale(1.05);
+}
+
+.btn-clear {
+    background-color: red;
+    color: white;
+}
+
+.export-buttons {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.btn-export {
+    background-color: #249a55;
+    color: white;
+}
+
+.btn-export:hover {
+    background-color: #45b975;
+    transform: scale(1.05);
+}
+
+.dark-mode .btn-calculate {
+    background-color: #344ddb;
+    color: white;
+}
+
+.dark-mode .btn-calculate:hover {
+    background-color: #6979d4;
+    transform: scale(1.05);
+}
+
+.dark-mode .btn-clear {
+    background-color: red;
+    color: white;
+}
+
+.btn-clear:hover {
+    background-color: #c85f53;
+    transform: scale(1.05);
+}
+
+.dark-mode .btn-export {
+    background-color: #249a55;
+}
+
+.dark-mode .btn-export:hover {
+    background-color: #45b975;
+    transform: scale(1.05);
+}
+
+/* Estilos base de la tabla */
+.table-responsive {
+    border-radius: 8px;
+    overflow: auto;
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
+}
+
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+}
+
+/* Estilos para modo claro */
+table {
+    background-color: #ffffff;
+    color: #333333;
+}
+
+th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+    /* text-transform: uppercase; */
+    letter-spacing: 0.05em;
+    color: #2980b9;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tr:nth-child(odd) {
+    background-color: #ffffff;
+}
+
+tr:hover {
+    background-color: #e6f3ff;
+}
+
+/* Estilos para modo oscuro */
+.dark-mode table {
+    background-color: #1e2a3a;
+    color: #ecf0f1;
+}
+
+.dark-mode th {
+    background-color: #2c3e50;
+    color: #3498db;
+}
+
+.dark-mode tr:nth-child(even) {
+    background-color: #243447;
+}
+
+.dark-mode tr:nth-child(odd) {
+    background-color: #1e2a3a;
+}
+
+.dark-mode tr:hover {
+    background-color: #2c3e50;
+}
+
+/* Estilos para el scrollbar en modo claro */
+.table-responsive::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+}
+
+.table-responsive::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.table-responsive::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+}
+
+.table-responsive::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* Estilos para el scrollbar en modo oscuro */
+.dark-mode .table-responsive::-webkit-scrollbar-track {
+    background: #2c3e50;
+}
+
+.dark-mode .table-responsive::-webkit-scrollbar-thumb {
+    background: #34495e;
+}
+
+.dark-mode .table-responsive::-webkit-scrollbar-thumb:hover {
+    background: #4a6278;
+}
+
+footer {
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 40px;
+}
+
+.github-link i {
+    font-size: 2.8em; /* Ajusta el tamaño del icono */
+    transition: color 0.3s ease; /* Añade una transición suave para el cambio de color */
+}
+
+.github-link i:hover {
+    /* color: #344ddb; */
+    transform: scale(1.05);
+}
+
+.dark-mode .github-link i {
+    color: white; /* Color blanco en modo oscuro */
+}
+
+.github-link i {
+    color: white; /* Color negro en modo claro */
+}
+
+/* Estilos personalizados para SweetAlert2 */
+.swal2-custom-popup {
+    border-radius: 15px !important;
+    background-color: var(--swal2-bg-color) !important;
+    color: var(--swal2-text-color) !important;
+}
+
+.swal2-custom-button {
+    border-radius: 25px !important;
+    padding: 10px 20px !important;
+}
+
+.swal2-confirm-button {
+    border-radius: 25px !important;
+    padding: 10px 20px !important;
+    background-color: #d33 !important; /* Rojo para el botón de confirmación */
+    color: #fff !important;
+}
+
+.swal2-cancel-button {
+    border-radius: 25px !important;
+    padding: 10px 20px !important;
+    background-color: #344ddb !important; /* Color actual para el botón de cancelación */
+    color: #fff !important;
+}
+
+/* Modo claro */
+body:not(.dark-mode) .swal2-custom-popup {
+    --swal2-bg-color: #fff;
+    --swal2-text-color: #333;
+}
+
+body:not(.dark-mode) .swal2-custom-button {
+    background-color: #344ddb !important;
+    color: #fff !important;
+}
+
+/* Modo oscuro */
+body.dark-mode .swal2-custom-popup {
+    --swal2-bg-color: #1a2634;
+    --swal2-text-color: #ecf0f1;
+}
+
+body.dark-mode .swal2-custom-button {
+    background-color: #344ddb !important;
+    color: #ecf0f1 !important;
+}
+
+body.dark-mode .swal2-confirm-button {
+    background-color: #d33 !important; /* Rojo para el botón de confirmación */
+    color: #fff !important;
+}
+
+body.dark-mode .swal2-cancel-button {
+    background-color: #344ddb !important; /* Color actual para el botón de cancelación */
+    color: #fff !important;
+}
+
+/* Estilos para dropdown */
+.theme-dropdown {
+    position: relative;
+}
+
+.theme-toggle {
+    background-color: #4d5e71;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 24px;
+}
+
+.theme-toggle:hover {
+    background-color: #344ddb;
+}
+
+.theme-options {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    top: 50px;
+    right: 0;
+    display: none;
+}
+
+.theme-options li {
+    padding: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.theme-options li:hover {
+    background-color: #dbd4f0;
+}
+
+.theme-options li i {
+    margin-right: 10px;
+}
+
+.theme-options li .fa-check {
+    margin-left: auto;
+    color: green;
+}
+
+.theme-dropdown .theme-options[ng-show="dropdownOpen"] {
+    display: block;
+}
+
+/* Estilos para modo oscuro */
+body.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+body.dark-mode .theme-toggle {
+    background-color: #4d5e71;
+}
+
+body.dark-mode .theme-toggle:hover {
+    background-color: #344ddb;
+}
+
+body.dark-mode .theme-options {
+    background-color: #322936;
+    border-radius: 12px;
+    border-color: #444444;
+}
+
+body.dark-mode .theme-options li {
+    color: #ffffff;
+}
+
+body.dark-mode .theme-options li:hover {
+    border-radius: 12px;
+    background-color: #5f5579;
+}
+
+/* Media Queries para diferentes dispositivos */
+
+/* Tablets en modo retrato y teléfonos en modo paisaje */
+@media (max-width: 1024px) {
+    .container {
+        width: 90%;
+    }
+
+    header .container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .button-group {
+        flex-direction: column;
+    }
+
+    .button-group button {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    table {
+        font-size: 14px;
+    }
+
+    th, td {
+        padding: 10px;
+    }
+
+    .theme-dropdown {
+        position: static;
+        margin-top: 10px;
+    }
+
+    .theme-options {
+        position: static;
+        box-shadow: none;
+    }
+}
+
+/* Teléfonos en modo retrato */
+@media (max-width: 768px) {
+    .container {
+        width: 100%;
+    }
+
+    header .container {
+        align-items: center;
+    }
+
+    .theme-dropdown {
+        position: static;
+        margin-top: 10px;
+    }
+
+    .theme-options {
+        position: static;
+        box-shadow: none;
+    }
+}
